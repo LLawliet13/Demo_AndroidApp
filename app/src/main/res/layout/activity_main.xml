@@ -4,100 +4,101 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="59dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
-        android:text="Campus"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/textViewUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="User Name"
+        android:text="User name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/editTextUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@id/textViewUserName"
+        app:layout_constraintStart_toStartOf="parent"
+        android:hint="Enter user name" />
+
+    <TextView
+        android:id="@+id/textViewPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:text="Password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextUserName"/>
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Enter password"
-        android:inputType="textPassword"
+        app:layout_constraintTop_toBottomOf="@id/textViewPassword"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        android:inputType="textPassword" />
 
     <RadioGroup
-        android:id="@+id/radioGroup2"
-        android:layout_width="136dp"
-        android:layout_height="146dp"
-        android:layout_marginTop="28dp"
+        android:id="@+id/radioGroupRole"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword">
+        app:layout_constraintTop_toBottomOf="@id/editTextPassword">
 
         <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="125dp"
-            android:layout_height="45dp"
-            android:text="Manager" />
-
-        <RadioButton
-            android:id="@+id/radioButton"
-            android:layout_width="125dp"
-            android:layout_height="45dp"
+            android:id="@+id/radioButtonStaff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Staff" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="125dp"
-            android:layout_height="45dp"
-            android:text="Admin" />
+            android:id="@+id/radioButtonManager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Manager" />
+
+        <RadioButton
+            android:id="@+id/radioButtonAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Aministrator" />
+
     </RadioGroup>
+    <TextView
+        android:id="@+id/textViewCampus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Campus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radioGroupRole"/>
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="313dp"
-        android:layout_height="32dp"
-
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="36dp"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
-
-    <CheckBox
-        android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Rembemer password?"
+        app:layout_constraintStart_toEndOf="@id/textViewCampus"
+        app:layout_constraintTop_toBottomOf="@id/radioGroupRole"/>
+
+    <CheckBox
+        android:id="@+id/checkBoxRememberPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remember password?"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@id/textViewCampus" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="400dp"
+        android:id="@+id/buttonLogin"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="5dp"
-        android:text="Login"
-        android:onClick="onLogin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
-
-
+        app:layout_constraintTop_toBottomOf="@id/checkBoxRememberPassword"
+        android:onClick="onLogin"
+        android:text="Login" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

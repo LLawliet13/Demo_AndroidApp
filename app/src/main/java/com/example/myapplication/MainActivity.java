@@ -13,78 +13,76 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-
-public class MainActivity extends AppCompatActivity implements
-        AdapterView.OnItemSelectedListener {
-
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private Spinner spinnerCampus;
-    private EditText editTextUserName, editTextPassword;
+    private EditText editTextUserName, editTextPasswoord;
     private RadioButton radioButtonManager, radioButtonStaff, radioButtonAdmin;
     private CheckBox checkBoxRemember;
-    private String role;
-
+    private String role, campus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         spinnerCampus = findViewById(R.id.spinner);
-        radioButtonAdmin = findViewById(R.id.radioButton3);
+        radioButtonAdmin = findViewById(R.id.radioButtonAdmin);
         radioButtonAdmin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Admin is selected", Toast.LENGTH_LONG).show();
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Admin is selected", Toast.LENGTH_LONG).show();
                 role = "Admin";
             }
         });
-        radioButtonManager = findViewById(R.id.radioButton2);
-        radioButtonManager.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Manager is selected", Toast.LENGTH_LONG).show();
-                role = "Manager";
-            }
+        radioButtonStaff = findViewById(R.id.radioButtonStaff);
+        radioButtonStaff.setOnClickListener(v -> {
+            Toast.makeText(getApplicationContext(), "Staff is selected", Toast.LENGTH_LONG).show();
+            role = "Staff";
         });
-        radioButtonStaff = findViewById(R.id.radioButton);
-        radioButtonStaff.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Staff is selected", Toast.LENGTH_LONG).show();
-                role = "Staff";
-            }
+        radioButtonManager = findViewById(R.id.radioButtonManager);
+        radioButtonManager.setOnClickListener(v -> {
+            Toast.makeText(getApplicationContext(), "Manager is selected", Toast.LENGTH_LONG).show();
+            role = "Manager";
         });
-        editTextUserName = findViewById(R.id.editTextTextPersonName);
-        editTextPassword = findViewById(R.id.editTextTextPassword);
-        checkBoxRemember = findViewById(R.id.checkBox);
+        editTextUserName = findViewById(R.id.editTextUserName);
+        editTextPasswoord = findViewById(R.id.editTextPassword);
+        checkBoxRemember = findViewById(R.id.checkBoxRememberPassword);
+
+        //Set listener for spinner
         spinnerCampus.setOnItemSelectedListener(this);
-        ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(this, R.array.labels_array, android.R.layout.simple_spinner_item);
+        //Create adapter for Spinner
+        ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(this, R.array.campus_array,
+                android.R.layout.simple_spinner_item);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerCampus.setAdapter(arrayAdapter);
     }
 
     @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        Toast.makeText(getApplicationContext(), "Selected Item: " + adapterView.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+    public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+//        Toast.makeText(getApplicationContext(), "Selected Item: " + adapterView.getSelectedItem().toString(),
+//                Toast.LENGTH_SHORT).show();
+        campus = adapterView.getItemAtPosition(position).toString();
     }
 
     @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
+    public void onNothingSelected(AdapterView<?> parent) {
 
     }
-
     @Override
     protected void onStart() {
         super.onStart();
+        // More codes before Activity started
     }
-
     @Override
     protected void onResume() {
         super.onResume();
     }
-
     @Override
     protected void onPause() {
         super.onPause();
     }
 
+    /**
+     *
+     */
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -92,8 +90,7 @@ public class MainActivity extends AppCompatActivity implements
 
     /**
      * Handle action when user click on button Login
-     *
-     * @pram view
+     * @param view
      */
     public void onLogin(View view) {
         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
@@ -102,4 +99,3 @@ public class MainActivity extends AppCompatActivity implements
         startActivity(intent);
     }
 }
-

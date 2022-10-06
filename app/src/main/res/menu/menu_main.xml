@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/app_bar_search"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="Search"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/menuItemCreateRequest"
+        android:icon="@drawable/ic_action_menu"
+        android:title="Create Request" />
+    <item
+        android:id="@+id/menuItemRequestHistory"
+        android:icon="@drawable/ic_action_menu"
+        android:title="Request History" />
+    <item
+        android:id="@+id/menuItemFavourites"
+        android:icon="@drawable/ic_action_menu"
+        android:title="Favourite" />
+    <item
+        android:id="@+id/MenuItemSendNotification"
+        android:icon="@drawable/ic_action_menu"
+        android:title="Favourite" />
+    <item
+        android:id="@+id/menuItemCancelNotification"
+        android:icon="@drawable/ic_action_menu"
+        android:title="Favourite" />
+</menu>

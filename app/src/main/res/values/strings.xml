@@ -1,9 +1,11 @@
-
 <resources>
-<string name="app_name">My Application</string>
-<string-array name="labels_array">
-    <item>Ho Chi Minh</item>
-    <item>Ha Noi</item>
-    <item>Da Nang</item>
-</string-array>
+    <string name="app_name">SE1515-NET Application</string>
+    <string-array name="campus_array">
+        <item>Ho Chi Minh</item>
+        <item>Ha Noi</item>
+        <item>Can Tho</item>
+        <item>Da Nawg</item>
+    </string-array>
+    <string name="notification_title" >title</string>
+    <string name="notification_content" >abc</string>
 </resources>
